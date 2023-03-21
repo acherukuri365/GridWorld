@@ -11,20 +11,20 @@ public class DancingBug extends Bug
 {
     //~ private int steps;
     //~ private int sideLength;
-    private int index;
-    private int[] turns;
+    private int index;      //current array index
+    private int numDances;  //number of times bug has finished the pattern (dance)
+    private int[] turns;    //array of number of turns each step
 
     /**
      * Constructs a box bug that traces a square of a given side length
-     * @param length the side length
      */
-    public DancingBug(int length)
+    public DancingBug()
     {
         //~ steps = 0;
         //~ sideLength = length;
         index = 0;
-        turns = { 1, 0, 0, 0, 1, 0, 0, 3, 4, 4, 0, 0,
-			1, 0, 3, 2, 0, 7, 0, 0, 0, 3, 2, 1 }
+        turns = new int[]{ 1, 0, 0, 0, 1, 0, 0, 3, 4, 4, 0, 0,
+			1, 0, 3, 2, 0, 7, 0, 0, 0, 3, 2, 1 };
     }
 
     /**
@@ -32,10 +32,13 @@ public class DancingBug extends Bug
      */
     public void act()
     {
-        for(int i = 0; i < turns[index]; i++) {
-			turn();
-		}
-		move();
-		index++;
+        if(numDances < 4) {
+            for (int i = 0; i < turns[index]; i++) {
+                turn();
+            }
+            move();
+            index++;
+            if(index == turns.length) { index = 0; numDances++; }
+        }
     }
 }
