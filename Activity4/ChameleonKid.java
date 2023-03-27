@@ -7,10 +7,10 @@ public class ChameleonKid extends ChameleonCritter {
     {
 		ArrayList<Actor> actors = new ArrayList<Actor>();
 		
-		Actor actor = getGrid().get(getLocation.getAdjacentLocation(Location.NORTH));
+		Actor actor = getGrid().get(getLocation().getAdjacentLocation(Location.NORTH));
 		if(actor != null) actors.add(actor);
 		
-		actor = getGrid().get(getLocation.getAdjacentLocation(Location.SOUTH));
+		actor = getGrid().get(getLocation().getAdjacentLocation(Location.SOUTH));
 		if(actor != null) actors.add(actor);
 		
         return actors;
