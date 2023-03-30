@@ -52,18 +52,27 @@ public class BlusterCritter extends Critter {
     
     public void darken() {
 		Color c = getColor();
-        int red = (int) (c.getRed() * (1 - COLOR_FACTOR) % 255);
-        int green = (int) (c.getGreen() * (1 - COLOR_FACTOR) % 255);
-        int blue = (int) (c.getBlue() * (1 - COLOR_FACTOR) % 255);
+		int red, green, blue; red = green = blue = 0;;
+        if(c.getRed() > 0) red = (int)(c.getRed() - 5);
+        if(c.getGreen() > 0) green = (int)(c.getGreen() - 5);
+        if(c.getBlue() > 0) blue = (int)(c.getBlue() - 5);
 
         setColor(new Color(red, green, blue));
 	}
 	
 	public void lighten() {
-		Color c = getColor();
-        int red = (int) (c.getRed() * (1 + COLOR_FACTOR) % 255);
-        int green = (int) (c.getGreen() * (1 + COLOR_FACTOR) % 255);
-        int blue = (int) (c.getBlue() * (1 + COLOR_FACTOR) % 255);
+		//~ Color c = getColor();
+        //~ int red = (int) (c.getRed() * (1 + COLOR_FACTOR) % 255);
+        //~ int green = (int) (c.getGreen() * (1 + COLOR_FACTOR) % 255);
+        //~ int blue = (int) (c.getBlue() * (1 + COLOR_FACTOR) % 255);
+
+        //~ setColor(new Color(red, green, blue));
+        
+        Color c = getColor();
+		int red, green, blue; red = green = blue = 0;;
+        if(c.getRed() < 255) red = (int)(c.getRed() + 5);
+        if(c.getGreen() < 255) green = (int)(c.getGreen() + 5);
+        if(c.getBlue() < 255) blue = (int)(c.getBlue() + 5);
 
         setColor(new Color(red, green, blue));
 	}
