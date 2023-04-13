@@ -2,7 +2,7 @@
  *	@author Anirudh Cherukuri
  */
 
-import info.gridworld.actor.actor;
+import info.gridworld.actor.Actor;
 
 public class Kaboom extends Actor {
 	private static final int LIFETIME_THRESHOLD = 3;
